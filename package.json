@@ -1,5 +1,6 @@
 {
   "name": "history-project",
+  "homepage": "https://22ijun1941-source.github.io/diana-history-project-main/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tsparticles/engine": "^3.9.1",
@@ -34,6 +36,7 @@
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
+    "gh-pages": "^6.3.0",
     "globals": "^16.5.0",
     "prettier": "3.7.4",
     "sass-embedded": "^1.97.0",
