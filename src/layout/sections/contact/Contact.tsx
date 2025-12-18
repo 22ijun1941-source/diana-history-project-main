@@ -18,10 +18,10 @@ export const Contact = (props: { headerName: string }) => {
 
         emailjs
             .sendForm(
-                "service_xf52msm",
-                "template_h8h63qo",
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
                 formRef.current,
-                "inWfyH_bLRlegBo52",
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
             )
             .then(() => {
                 alert("Сообщение отправлено");
