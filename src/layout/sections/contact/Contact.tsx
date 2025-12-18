@@ -1,22 +1,62 @@
-import {StyledSection} from "../../../components/section/Section";
+import { StyledSection } from "../../../components/section/Section";
 import SectionHeader from "../../../components/headers/SectionHeader";
-import styled, {css} from 'styled-components';
+import styled, { css } from "styled-components";
 import FlexWrapper from "../../../components/flexWrapper/FlexWrapper";
-import {Container} from "../../../components/container/Container";
-import {Button} from "../../../components/button/Button";
+import { Container } from "../../../components/container/Container";
+import { Button } from "../../../components/button/Button";
 import theme from "../../../styles/Theme.Styled";
+import { useRef } from "react";
+import emailjs from "emailjs-com";
 
 export const Contact = (props: { headerName: string }) => {
+    const formRef = useRef<HTMLFormElement>(null);
+
+    const sendEmail = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!formRef.current) return;
+
+        emailjs
+            .sendForm(
+                "service_xf52msm",
+                "template_h8h63qo",
+                formRef.current,
+                "inWfyH_bLRlegBo52",
+            )
+            .then(() => {
+                alert("Сообщение отправлено");
+            })
+            .catch(() => {
+                alert("Ошибка при отправке");
+            });
+    };
+
     return (
         <StyledSection id={props.headerName}>
             <Container>
-                <SectionHeader text={props.headerName} mb={'62px'}/>
-                <FlexWrapper justify={'center'} >
-                    <StyledForm flexbox={true}>
-                        <StyledField placeholder={'name'}/>
-                        <StyledField placeholder={'subject'}/>
-                        <StyledField placeholder={'message'} as={"textarea"}/>
-                        <Button type={'submit'}>Send message</Button>
+                <SectionHeader text={props.headerName} mb={"62px"} />
+                <FlexWrapper justify={"center"}>
+                    <StyledForm flexbox={true} ref={formRef} onSubmit={sendEmail}>
+                        <StyledField
+                            type="text"
+                            name="name"
+                            placeholder={"name"}
+                            required={true}
+                        />
+                        <StyledField
+                            type="text"
+                            name="title"
+                            placeholder={"subject"}
+                            required={true}
+                        />
+                        <StyledField
+                            placeholder={"message"}
+                            as={"textarea"}
+                            type="text"
+                            name="message"
+                            required={true}
+                        />
+                        <Button type={"submit"}>Send message</Button>
                     </StyledForm>
                 </FlexWrapper>
             </Container>
@@ -25,49 +65,49 @@ export const Contact = (props: { headerName: string }) => {
 };
 
 type StyledFormProps = {
-    flexbox: boolean,
-}
+    flexbox: boolean;
+};
 
 const StyledForm = styled.form<StyledFormProps>`
-  max-width: 540px;
-  width: 100%;
+    max-width: 540px;
+    width: 100%;
 
-  ${props => props.flexbox && css<StyledFormProps>`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `
-  }
-  
-  textarea {
-    margin-bottom: 35px;
-    height: 179px;
-    resize: none;
-  }
+    ${(props) =>
+            props.flexbox &&
+            css<StyledFormProps>`
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            `}
 
-  input:not(:nth-last-child(1)) {
-    margin-bottom: 16px;
-    max-height: 32px;
-    height: 100%;
-  }
-`
+    textarea {
+        margin-bottom: 35px;
+        height: 179px;
+        resize: none;
+    }
+
+    input:not(:nth-last-child(1)) {
+        margin-bottom: 16px;
+        max-height: 32px;
+        height: 100%;
+    }
+`;
 
 const StyledField = styled.input`
-  width: 100%;
+    width: 100%;
 
-  border: 1px solid ${theme.colors.greyTwo};
-  background-color: ${theme.backgroundColor.third};
+    border: 1px solid ${theme.colors.greyTwo};
+    background-color: ${theme.backgroundColor.third};
 
-  font-family: "Poppins", sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.6px;
-  padding: 0 15px;
-  
-  outline: 1px solid ${theme.colors.greyTwo}; 
-  position: relative;
-  &::placeholder {
-    color: ${theme.colors.greyThree};
-  }
-`
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+    padding: 0 15px;
 
+    outline: 1px solid ${theme.colors.greyTwo};
+    position: relative;
+    &::placeholder {
+        color: ${theme.colors.greyThree};
+    }
+`;
