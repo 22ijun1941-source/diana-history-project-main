@@ -5,7 +5,7 @@ import { Footer } from "./layout/footer/Footer.tsx";
 import { Particle } from "./components/particle/Particle.tsx";
 
 const menuItems = ["Hero", "Skills", "Works", "Testimony", "Contact"];
-
+//
 function App() {
   return (
     <StyledApp className="App">
