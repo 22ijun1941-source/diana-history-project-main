@@ -29,7 +29,7 @@ const tabsItems: Array<{
         status: "petr",
     },
     {
-        title: "После войны",
+        title: "Война",
         status: "aftermath",
     },
 ];
