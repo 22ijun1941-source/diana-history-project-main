@@ -14,37 +14,37 @@ export const Skills = ({itemMenu: skills}: Item) => {
       skillIconId: "code",
       skillTitle: "html5",
       skillText:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis molestias nam odit quo temporibus?",
+        "Использую семантическую разметку для создания структурированных и доступных интерфейсов. Обеспечиваю корректную работу страниц во всех современных браузерах",
     },
     {
       skillIconId: "css3",
       skillTitle: "css3",
       skillText:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis molestias nam odit quo temporibus?",
+        "Верстаю адаптивные и кроссбраузерные интерфейсы с использованием современных возможностей CSS. Уделяю внимание анимациям, сеткам и поддерживаемости стилей",
     },
     {
       skillIconId: "react",
       skillTitle: "react",
       skillText:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis molestias nam odit quo temporibus?",
+        "Разрабатываю компонентные интерфейсы с управлением состоянием и логикой приложения. Использую хуки и принципы переиспользуемого кода",
     },
     {
       skillIconId: "typescript",
       skillTitle: "typescript",
       skillText:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis molestias nam odit quo temporibus?",
+        "Применяю строгую типизацию для повышения надёжности и масштабируемости кода. Снижаю количество ошибок на этапе разработки и поддержки",
     },
     {
       skillIconId: "styledcomponents",
       skillTitle: "styledcomponents",
       skillText:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis molestias nam odit quo temporibus?",
+        "Создаю изолированные и переиспользуемые стили внутри компонентов. Поддерживаю читаемость и гибкость стилевой архитектуры",
     },
     {
       skillIconId: "figma",
       skillTitle: "figma",
       skillText:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci debitis molestias nam odit quo temporibus?",
+        "Работаю с дизайн-макетами, компонентами и автолэйаутами. Готовлю дизайн к передаче в разработку без потери деталей",
     },
   ];
   return (
