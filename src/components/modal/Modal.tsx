@@ -37,9 +37,7 @@ export const Modal = ({isOpen, onClose, children}: ModalProps) => {
                         transition={{duration: 0.3}}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/*<ScrollArea>*/}
-                            {children}
-                        {/*</ScrollArea>*/}
+                        {children}
                     </Content>
                 </Overlay>
             )}
@@ -80,6 +78,7 @@ export const ScrollArea = styled.div`
   margin-bottom: 15px;
 
   /* Chrome / Edge / Safari */
+
   &::-webkit-scrollbar {
     width: 5px;
   }

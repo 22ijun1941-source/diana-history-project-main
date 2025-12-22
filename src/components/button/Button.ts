@@ -1,7 +1,11 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import theme from "../../styles/Theme.Styled";
 
-export const Button = styled.button`
+type ModalButton = {
+    $isModalButton?: boolean;
+}
+
+export const Button = styled.button<ModalButton>`
   color: ${theme.colors.white};
   font-size: 14px;
   font-weight: 400;
@@ -20,6 +24,11 @@ export const Button = styled.button`
     &:before {
       height: 100%;
       width: 100%;
+      ${(props) =>
+      props.$isModalButton &&
+      css<ModalButton>`
+        width: 140px;
+    `}
       z-index: -1;
       height: 43px;
     }

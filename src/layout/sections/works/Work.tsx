@@ -25,7 +25,7 @@ export const Work = (props: WorkPropsType) => {
                         </StyledTextBlock>
                     </ImageWrapperModal>
                 </ScrollArea>
-                <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                <Button $isModalButton={true} onClick={() => setIsOpen(false)}>Закрыть</Button>
             </Modal>
             <ImageWrapper>
                 <Image src={props.src} alt={props.title}/>
