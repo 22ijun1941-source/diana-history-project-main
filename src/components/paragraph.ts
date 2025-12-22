@@ -7,7 +7,7 @@ type ParagraphPropsType = {
     fontWeight?: string,
     textAlign?: string,
     maxWidth?: string,
-    maxHeight?: string,
+    $maxHeight?: string,
     clamp?: string,
     mb?: string,
     color?: string,
@@ -20,7 +20,7 @@ export const StyledParagraph = styled.p<ParagraphPropsType>`
   text-align: ${props => props.textAlign || 'center'};
   max-width: ${props => props.maxWidth || 'unset'};
   min-width: ${props => props.minWidth || 'unset'};
-  max-height: ${props => props.maxHeight || 'unset'};
+  max-height: ${props => props.$maxHeight || 'unset'};
   width: 100%;
   height: 100%;
 

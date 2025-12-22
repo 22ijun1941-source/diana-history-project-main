@@ -1,36 +1,42 @@
 import styled from "styled-components";
 import theme from "../../../styles/Theme.Styled";
-import { Link } from "../../../components/link/Link";
-import { Button } from "../../../components/button/Button";
+import {Button} from "../../../components/button/Button";
+import {Modal} from "../../../components/modal/Modal.tsx";
+import {useState} from "react";
 
 type WorkPropsType = {
-  title: string;
-  text: string;
-  src: string;
+    title: string;
+    text: string;
+    src: string;
 };
 
 export const Work = (props: WorkPropsType) => {
-  return (
-    <StyledWork>
-      <ImageWrapper>
-        <Image src={props.src} alt="" />
-        <Button>view project</Button>
-      </ImageWrapper>
+    const [isOpen, setIsOpen] = useState(false);
 
-      <StyledAboutSubblock>
-        <Title>{props.title}</Title>
-        <Text>{props.text}</Text>
-        <LinkList>
-          <ListItem>
-            <Link href={"#"}>demo</Link>
-          </ListItem>
-          <ListItem>
-            <Link href={"#"}>code</Link>
-          </ListItem>
-        </LinkList>
-      </StyledAboutSubblock>
-    </StyledWork>
-  );
+    return (
+        <StyledWork>
+            <ImageWrapper>
+                <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                    <Button onClick={() => setIsOpen(true)}>Посмотреть</Button>
+                </Modal>
+                    <Image src={props.src} alt=""/>
+                    <Button onClick={() => setIsOpen(true)}>Посмотреть</Button>
+            </ImageWrapper>
+
+            <StyledAboutSubblock>
+                <Title>{props.title}</Title>
+                <Text>{props.text}</Text>
+                {/*<LinkList>*/}
+                {/*  <ListItem>*/}
+                {/*    <Link href={"#"}>demo</Link>*/}
+                {/*  </ListItem>*/}
+                {/*  <ListItem>*/}
+                {/*    <Link href={"#"}>code</Link>*/}
+                {/*  </ListItem>*/}
+                {/*</LinkList>*/}
+            </StyledAboutSubblock>
+        </StyledWork>
+    );
 };
 
 const StyledWork = styled.div`
@@ -66,6 +72,7 @@ const ImageWrapper = styled.div`
 
   // before rastyagivaetsya na ves div s kartinkoy
   // i dobavlyaetsya blur s transition  i opacity 0 (0 - nachanl'noe sostoyanie)
+
   &::before {
     position: absolute;
     content: "";
@@ -137,13 +144,13 @@ const StyledAboutSubblock = styled.div`
   padding: 0 20px 30px 20px;
 `;
 
-const LinkList = styled.ul`
-  display: flex;
-  gap: 20px;
-`;
-
-const ListItem = styled.li`
-  position: relative;
-  padding: 0 2px;
-  z-index: 1;
-`;
+// const LinkList = styled.ul`
+//   display: flex;
+//   gap: 20px;
+// `;
+//
+// const ListItem = styled.li`
+//   position: relative;
+//   padding: 0 2px;
+//   z-index: 1;
+// `;

@@ -50,7 +50,7 @@ export const Skills = ({itemMenu: skills}: Item) => {
   return (
     <SkillsStyledSection
       id={skills.link}
-      backGrColor={theme.backgroundColor.secondary}
+      $backGrColor={theme.backgroundColor.secondary}
     >
       <Container>
         <SectionTitle text={`${skills.name}`} mb={"80px"} />

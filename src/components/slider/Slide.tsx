@@ -16,7 +16,7 @@ export const Slide = (props: sliderPropsType) => {
                      mb={'42px'}
         >
             <StyledParagraph
-                maxHeight={'63px'}
+                $maxHeight={'63px'}
                 clamp={'3'}
                 mb={'22px'}
             >

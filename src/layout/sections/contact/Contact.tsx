@@ -36,7 +36,7 @@ export const Contact = ({itemMenu: contact}: Item) => {
             <Container>
                 <SectionHeader text={contact.name} mb={"62px"} />
                 <FlexWrapper justify={"center"}>
-                    <StyledForm flexbox={true} ref={formRef} onSubmit={sendEmail}>
+                    <StyledForm $flexbox={true} ref={formRef} onSubmit={sendEmail}>
                         <StyledField
                             type="text"
                             name="name"
@@ -65,7 +65,7 @@ export const Contact = ({itemMenu: contact}: Item) => {
 };
 
 type StyledFormProps = {
-    flexbox: boolean;
+    $flexbox: boolean;
 };
 
 const StyledForm = styled.form<StyledFormProps>`
@@ -73,7 +73,7 @@ const StyledForm = styled.form<StyledFormProps>`
     width: 100%;
 
     ${(props) =>
-            props.flexbox &&
+            props.$flexbox &&
             css<StyledFormProps>`
                 display: flex;
                 flex-direction: column;

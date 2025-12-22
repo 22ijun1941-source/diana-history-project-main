@@ -13,7 +13,7 @@ export const Testimony = ({itemMenu: testimony}: Item) => {
   return (
     <TestimonyStyledSection
       id={testimony.link}
-      backGrColor={theme.backgroundColor.secondary}
+      $backGrColor={theme.backgroundColor.secondary}
     >
       <Container>
         <SectionHeader text={testimony.name} mb={"60px"} />
