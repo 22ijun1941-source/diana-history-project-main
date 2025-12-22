@@ -1981,27 +1981,27 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   width: 100%;
 `,SL=({itemMenu:e})=>X.jsx(wL,{id:e.link,$backGrColor:gt.backgroundColor.secondary,children:X.jsxs(Pa,{children:[X.jsx(Fl,{text:e.name,mb:"60px"}),X.jsxs(li,{justify:"center",direction:"column",align:"center",children:[X.jsx(rE,{skillIconId:"code"}),X.jsx(vL,{})]})]})}),wL=ht(ad)`
   position: relative;
-`,Hl={_origin:"https://api.emailjs.com"},xL=(e,t="https://api.emailjs.com")=>{Hl._userID=e,Hl._origin=t},xC=(e,t,i)=>{if(!e)throw"The user ID is required. Visit https://dashboard.emailjs.com/admin/integration";if(!t)throw"The service ID is required. Visit https://dashboard.emailjs.com/admin";if(!i)throw"The template ID is required. Visit https://dashboard.emailjs.com/admin/templates";return!0};class f_{constructor(t){this.status=t.status,this.text=t.responseText}}const _C=(e,t,i={})=>new Promise((a,o)=>{const l=new XMLHttpRequest;l.addEventListener("load",({target:f})=>{const c=new f_(f);c.status===200||c.text==="OK"?a(c):o(c)}),l.addEventListener("error",({target:f})=>{o(new f_(f))}),l.open("POST",Hl._origin+e,!0),Object.keys(i).forEach(f=>{l.setRequestHeader(f,i[f])}),l.send(t)}),_L=(e,t,i,a)=>{const o=a||Hl._userID;return xC(o,e,t),_C("/api/v1.0/email/send",JSON.stringify({lib_version:"3.2.0",user_id:o,service_id:e,template_id:t,template_params:i}),{"Content-type":"application/json"})},TL=e=>{let t;if(typeof e=="string"?t=document.querySelector(e):t=e,!t||t.nodeName!=="FORM")throw"The 3rd parameter is expected to be the HTML form element or the style selector of form";return t},EL=(e,t,i,a)=>{const o=a||Hl._userID,l=TL(i);xC(o,e,t);const f=new FormData(l);return f.append("lib_version","3.2.0"),f.append("service_id",e),f.append("template_id",t),f.append("user_id",o),_C("/api/v1.0/email/send-form",f)},OL={init:xL,send:_L,sendForm:EL},CL=({itemMenu:e})=>{const t=st.useRef(null),i=a=>{a.preventDefault(),t.current&&OL.sendForm("service_xf52msm","template_h8h63qo",t.current,"inWfyH_bLRlegBo52").then(()=>{alert("Сообщение отправлено")}).catch(()=>{alert("Ошибка при отправке")})};return X.jsx(ad,{id:e.link,children:X.jsxs(Pa,{children:[X.jsx(Fl,{text:e.name,mb:"62px"}),X.jsx(li,{justify:"center",children:X.jsxs(ML,{$flexbox:!0,ref:t,onSubmit:i,children:[X.jsx(Nm,{type:"text",name:"name",placeholder:"name",required:!0}),X.jsx(Nm,{type:"text",name:"title",placeholder:"subject",required:!0}),X.jsx(Nm,{placeholder:"message",as:"textarea",type:"text",name:"message",required:!0}),X.jsx(Br,{type:"submit",children:"Send message"})]})})]})})},ML=ht.form`
-    max-width: 540px;
-    width: 100%;
+`,Hl={_origin:"https://api.emailjs.com"},xL=(e,t="https://api.emailjs.com")=>{Hl._userID=e,Hl._origin=t},xC=(e,t,i)=>{if(!e)throw"The user ID is required. Visit https://dashboard.emailjs.com/admin/integration";if(!t)throw"The service ID is required. Visit https://dashboard.emailjs.com/admin";if(!i)throw"The template ID is required. Visit https://dashboard.emailjs.com/admin/templates";return!0};class f_{constructor(t){this.status=t.status,this.text=t.responseText}}const _C=(e,t,i={})=>new Promise((a,o)=>{const l=new XMLHttpRequest;l.addEventListener("load",({target:f})=>{const c=new f_(f);c.status===200||c.text==="OK"?a(c):o(c)}),l.addEventListener("error",({target:f})=>{o(new f_(f))}),l.open("POST",Hl._origin+e,!0),Object.keys(i).forEach(f=>{l.setRequestHeader(f,i[f])}),l.send(t)}),_L=(e,t,i,a)=>{const o=a||Hl._userID;return xC(o,e,t),_C("/api/v1.0/email/send",JSON.stringify({lib_version:"3.2.0",user_id:o,service_id:e,template_id:t,template_params:i}),{"Content-type":"application/json"})},TL=e=>{let t;if(typeof e=="string"?t=document.querySelector(e):t=e,!t||t.nodeName!=="FORM")throw"The 3rd parameter is expected to be the HTML form element or the style selector of form";return t},EL=(e,t,i,a)=>{const o=a||Hl._userID,l=TL(i);xC(o,e,t);const f=new FormData(l);return f.append("lib_version","3.2.0"),f.append("service_id",e),f.append("template_id",t),f.append("user_id",o),_C("/api/v1.0/email/send-form",f)},OL={init:xL,send:_L,sendForm:EL},CL=({itemMenu:e})=>{const t=st.useRef(null),i=a=>{a.preventDefault(),t.current&&OL.sendForm("service_xf52msm","template_h8h63qo",t.current,"inWfyH_bLRlegBo52").then(()=>{alert("Сообщение отправлено"),t.current?.reset()}).catch(()=>{alert("Ошибка при отправке")})};return X.jsx(ad,{id:e.link,children:X.jsxs(Pa,{children:[X.jsx(Fl,{text:e.name,mb:"62px"}),X.jsx(li,{justify:"center",children:X.jsxs(ML,{$flexbox:!0,ref:t,onSubmit:i,children:[X.jsx(Nm,{type:"text",name:"name",placeholder:"name",required:!0}),X.jsx(Nm,{type:"text",name:"title",placeholder:"subject",required:!0}),X.jsx(Nm,{placeholder:"message",as:"textarea",type:"text",name:"message",required:!0}),X.jsx(Br,{type:"submit",children:"Send message"})]})})]})})},ML=ht.form`
+  max-width: 540px;
+  width: 100%;
 
-    ${e=>e.$flexbox&&Fn`
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            `}
+  ${e=>e.$flexbox&&Fn`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    `}
+  textarea {
+    margin-bottom: 35px;
+    height: 179px;
+    resize: none;
+    padding-top: 6px;
+  }
 
-    textarea {
-        margin-bottom: 35px;
-        height: 179px;
-        resize: none;
-    }
-
-    input:not(:nth-last-child(1)) {
-        margin-bottom: 16px;
-        max-height: 32px;
-        height: 100%;
-    }
+  input:not(:nth-last-child(1)) {
+    margin-bottom: 16px;
+    max-height: 32px;
+    height: 100%;
+  }
 `,Nm=ht.input`
     width: 100%;
 
