@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import theme from "../../../styles/Theme.Styled";
-import React from "react";
 import {Link} from "react-scroll";
+import type {MenuItems} from "../../../App.tsx";
 
-export const DesktopMenu: React.FC<{ menuItems: string[] }> = (props: { menuItems: string[] }) => {
+export const DesktopMenu = (props: { menuItems: MenuItems }) => {
     return (
         <StyledNavigation>
             <StyledListNavigation>
@@ -11,19 +11,19 @@ export const DesktopMenu: React.FC<{ menuItems: string[] }> = (props: { menuItem
                     props.menuItems.map((item, index) => {
                         return (
                             <ListItem key={index}>
-                                <NavLink to={item}
+                                <NavLink to={item.link}
                                          activeClass="active"
                                          smooth={true}
                                          spy={true}
                                          // href={`#${item}`}
-                                         aria-label={item}>
-                                    {item}
+                                         aria-label={item.name}>
+                                    {item.name}
                                     <Mask>
-                                        {item}
+                                        {item.name}
                                     </Mask>
                                     <Mask>
                                     <span>
-                                        {item}
+                                        {item.name}
                                     </span>
                                     </Mask>
                                 </NavLink>

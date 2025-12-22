@@ -1,10 +1,11 @@
-import React from "react";
 import HeaderMenu from "./HeaderMenu";
 import styled from "styled-components";
+import type {MenuItems} from "../../App.tsx";
 
-export const Header: React.FC<{ menuItems: string[] }> = (props: {
-  menuItems: string[];
-}) => {
+
+
+export const Header
+    = (props: { menuItems: MenuItems }) => {
   return (
     <StyledHeader>
       <HeaderMenu menuItems={props.menuItems} />

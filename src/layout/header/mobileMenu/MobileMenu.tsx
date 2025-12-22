@@ -1,8 +1,10 @@
 import styled, {css} from "styled-components";
 import theme from "../../../styles/Theme.Styled";
-import React, {useState} from "react";
+import {useState} from "react";
+import type {MenuItem, MenuItems} from "../../../App.tsx";
 
-export const MobileMenu: React.FC<{ menuItems: string[] }> = (props: { menuItems: string[] }) => {
+
+export const MobileMenu = (props: { menuItems: MenuItems }) => {
 
 
     const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -17,22 +19,22 @@ export const MobileMenu: React.FC<{ menuItems: string[] }> = (props: { menuItems
                 }}>
                     <StyledListNavigation>
                         {
-                            props.menuItems.map((item, index) => {
+                            props.menuItems.map((item: MenuItem, index) => {
                                 return (
                                     <ListItem key={index}>
                                         <NavLink
                                             // TODO ne rabotaet s mobilemenu react-scroll
                                             // to={item}
                                             //      smooth={true}
-                                            href={`#${item}`}
-                                            aria-label={item}>
-                                            {item}
+                                            href={`#${item.link}`}
+                                            aria-label={item.name}>
+                                            {item.name}
                                             <Mask>
-                                                {item}
+                                                {item.name}
                                             </Mask>
                                             <Mask>
                                             <span>
-                                                {item}
+                                                {item.name}
                                             </span>
                                             </Mask>
                                         </NavLink>
@@ -179,6 +181,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>
         display: flex;
       }
       // srednjaja cherta burger menu
+
       span {
         display: block;
         width: 36px;
@@ -187,6 +190,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>
 
 
         transition: .5s ease-in-out;
+
         ${props => props.isOpen && css<{ isOpen: boolean }>`
           background-color: rgba(255, 255, 255, 0);
           //pochemu ne opacity => togda k before i after tozhe primenitsja opacity 
@@ -200,7 +204,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>
           position: absolute;
           transform: translateY(-10px);
           transition: 1s ease-in-out;
-          
+
           ${props => props.isOpen && css<{ isOpen: boolean }>`
             transform: rotate(-45deg) translateY(0px);
           `}
@@ -215,7 +219,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>
           position: absolute;
           transform: translateY(10px);
           transition: 1s ease-in-out;
-          
+
           ${props => props.isOpen && css<{ isOpen: boolean }>`
             transform: rotate(45deg) translateY(0px);
             width: 36px;

@@ -7,10 +7,10 @@ import { Button } from "../../../components/button/Button";
 import theme from "../../../styles/Theme.Styled";
 import { useRef } from "react";
 import emailjs from "emailjs-com";
+import type {Item} from "../../main/Main.tsx";
 
-export const Contact = (props: { headerName: string }) => {
+export const Contact = ({itemMenu: contact}: Item) => {
     const formRef = useRef<HTMLFormElement>(null);
-
     const sendEmail = (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -32,9 +32,9 @@ export const Contact = (props: { headerName: string }) => {
     };
 
     return (
-        <StyledSection id={props.headerName}>
+        <StyledSection id={contact.link}>
             <Container>
-                <SectionHeader text={props.headerName} mb={"62px"} />
+                <SectionHeader text={contact.name} mb={"62px"} />
                 <FlexWrapper justify={"center"}>
                     <StyledForm flexbox={true} ref={formRef} onSubmit={sendEmail}>
                         <StyledField

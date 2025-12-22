@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import styled from "styled-components";
-import { Container } from "../../../components/container/Container";
+import {Container} from "../../../components/container/Container";
 import theme from "../../../styles/Theme.Styled";
 import DeveloperPhoto from "../../../assets/images/hero-photo.jpg";
 import backgroundImage from "../../../assets/images/photo-background.jpg";
-import { type HeaderPropsType } from "../../../components/types/types";
 import Typewriter from "typewriter-effect";
 import Tilt from "react-parallax-tilt";
+import type {Item} from "../../main/Main.tsx";
 
-const Hero = (props: HeaderPropsType) => {
-  return (
-    <SHeroSection id={props.headerName}>
-      <Container>
-        <HeroContent />
-      </Container>
-    </SHeroSection>
-  );
+const Hero = ({itemMenu: hero}: Item) => {
+
+    return (
+        <SHeroSection id={hero.link}>
+            <Container>
+                <HeroContent/>
+            </Container>
+        </SHeroSection>
+    );
 };
 
 const SHeroSection = styled.section`
@@ -25,77 +26,77 @@ const SHeroSection = styled.section`
 `;
 
 const HeroContent = () => {
-  return (
-    <SHeroDiv1>
-      <SHeroDiv2>
-        <p>Hi There</p>
-        <StyledWhoAmI>
-          <span>I&nbsp;am</span> <span>Diana</span>
-        </StyledWhoAmI>
-        <h2 className={"visually-hidden"}>A Web Developer.</h2>
-        <StyledH2Text>
-          <Typewriter
-            options={{
-              strings: [
-                "A Web Developer.",
-                "A React Developer.",
-                "A Frontend Developer.",
-              ],
-              autoStart: true,
-              loop: true,
-              delay: 150,
-            }}
-          />
-        </StyledH2Text>
-      </SHeroDiv2>
-      <TiltChanger />
-    </SHeroDiv1>
-  );
+    return (
+        <SHeroDiv1>
+            <SHeroDiv2>
+                <p>Привет</p>
+                <StyledWhoAmI>
+                    <span>Меня&nbsp;зовут</span> <span>Диана</span>
+                </StyledWhoAmI>
+                <h2 className={"visually-hidden"}>Я Вэб Разработчик</h2>
+                <StyledH2Text>
+                    <Typewriter
+                        options={{
+                            strings: [
+                                "Я Вэб Разработчик",
+                                "Я Вам расскажу про",
+                                "Исторические справки и документы",
+                            ],
+                            autoStart: true,
+                            loop: true,
+                            delay: 150,
+                        }}
+                    />
+                </StyledH2Text>
+            </SHeroDiv2>
+            <TiltChanger/>
+        </SHeroDiv1>
+    );
 };
 
 const HeroImageWrapper = () => {
-  return (
-    <SHeroDiv3>
-      <img src={DeveloperPhoto} alt="Diana" />
-    </SHeroDiv3>
-  );
+    return (
+        <SHeroDiv3>
+            <img src={DeveloperPhoto} alt="Diana"/>
+        </SHeroDiv3>
+    );
 };
 
 const TiltChanger = () => {
-  const breakPoint = 768;
-  const [width, setWidth] = useState(window.innerWidth);
+    const breakPoint = 768;
+    const [width, setWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            setWidth(window.innerWidth);
+        });
     });
-  });
 
-  return width < breakPoint ? (
-    <Tilt
-      className="parallax-effect-img"
-      tiltMaxAngleX={0}
-      tiltMaxAngleY={15}
-      gyroscope={true}
-    >
-      <HeroImageWrapper />
-    </Tilt>
-  ) : (
-    <>
-      <Tilt
-        className="parallax-effect-img"
-        tiltMaxAngleX={15}
-        tiltMaxAngleY={15}
-        perspective={800}
-        transitionSpeed={1500}
-        scale={1.1}
-        gyroscope={true}
-        // trackOnWindow={true}
-      >
-        <HeroImageWrapper />
-      </Tilt>
-    </>
-  );
+    return width < breakPoint ? (
+        <Tilt
+            className="parallax-effect-img"
+            tiltMaxAngleX={0}
+            tiltMaxAngleY={15}
+            gyroscope={true}
+        >
+            <HeroImageWrapper/>
+        </Tilt>
+    ) : (
+        <>
+            <Tilt
+                className="parallax-effect-img"
+                tiltMaxAngleX={15}
+                tiltMaxAngleY={15}
+                perspective={800}
+                transitionSpeed={1500}
+                scale={1.1}
+                gyroscope={true}
+                // trackOnWindow={true}
+            >
+                <HeroImageWrapper/>
+            </Tilt>
+        </>
+    );
 };
 
 const StyledWhoAmI = styled.div`

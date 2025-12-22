@@ -6,19 +6,17 @@ import theme from "../../../styles/Theme.Styled";
 import { Container } from "../../../components/container/Container";
 import { Slider } from "../../../components/slider/Slider";
 import styled from "styled-components";
+import type {Item} from "../../main/Main.tsx";
 
-type TestimonyPropsType = {
-  headerName: string;
-};
 
-export const Testimony = (props: TestimonyPropsType) => {
+export const Testimony = ({itemMenu: testimony}: Item) => {
   return (
     <TestimonyStyledSection
-      id={props.headerName}
+      id={testimony.link}
       backGrColor={theme.backgroundColor.secondary}
     >
       <Container>
-        <SectionHeader text={props.headerName} mb={"60px"} />
+        <SectionHeader text={testimony.name} mb={"60px"} />
         <FlexWrapper justify={"center"} direction={"column"} align={"center"}>
           <RombusWithIcon skillIconId={"code"} />
           <Slider />

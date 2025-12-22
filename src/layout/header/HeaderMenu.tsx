@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {DesktopMenu} from "./desktopMenu/DesktopMenu";
 import Logo from "../../components/logo/Logo";
 import styled from "styled-components";
 import {Container} from "../../components/container/Container";
 import {MobileMenu} from "./mobileMenu/MobileMenu";
+import type {MenuItems} from "../../App.tsx";
 
 
-const HeaderMenu: React.FC<{ menuItems: string[] }> = (props: { menuItems: string[] }) => {
+const HeaderMenu = (props: { menuItems: MenuItems }) => {
 
     return (
         <StyledHeaderContainer>
@@ -19,7 +20,7 @@ const HeaderMenu: React.FC<{ menuItems: string[] }> = (props: { menuItems: strin
     )
 };
 
-const MenuChanger = (props: { menuItems: string[] }) => {
+const MenuChanger = (props: { menuItems: MenuItems }) => {
     const breakPoint = 768;
     const [width, setWidth] = useState(window.innerWidth);
 

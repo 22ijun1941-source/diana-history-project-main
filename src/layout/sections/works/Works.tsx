@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { Container } from "../../../components/container/Container";
 import theme from "../../../styles/Theme.Styled";
@@ -8,9 +8,9 @@ import { StyledSection } from "../../../components/section/Section";
 import { Work } from "./Work";
 import timer from "./../../../assets/images/0c92c8a2d9105549989393fee63d52d5.png";
 import socialImg from "./../../../assets/images/0f6c9eae25a0122b383d52e1e9a7182e.png";
-import type { HeaderPropsType } from "../../../components/types/types";
 import { TabMenu } from "./TabMenu";
 import { AnimatePresence, motion } from "framer-motion";
+import type {Item} from "../../main/Main.tsx";
 
 const tabsItems: Array<{
   status: "all" | "landing" | "react" | "spa";
@@ -79,7 +79,7 @@ const worksData = [
   },
 ];
 
-export const Works: React.FC<HeaderPropsType> = (props: HeaderPropsType) => {
+export const Works = ({itemMenu: works}: Item) => {
   const [currentFilterStatus, setCurrentFilterStatus] = useState("all");
   let filteredWorks;
 
@@ -103,9 +103,9 @@ export const Works: React.FC<HeaderPropsType> = (props: HeaderPropsType) => {
   }
 
   return (
-    <StyledSection id={props.headerName}>
+    <StyledSection id={works.link}>
       <Container>
-        <SectionTitle text={`My ${props.headerName}`} mb={"69px"} />
+        <SectionTitle text={`My ${works.name}`} mb={"69px"} />
 
         <FlexWrapper
           wrap={"wrap"}

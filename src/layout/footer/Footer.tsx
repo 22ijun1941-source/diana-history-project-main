@@ -16,26 +16,26 @@ export const Footer: React.FC = () => {
                 } mb={'26px'} fontSize={'22px'}/>
                 <FlexWrapper justify={'center'}>
                     <SocialsList>
+                        {/*<ListItem>*/}
+                        {/*    <SocialLink href={"https://instagram.com"}>*/}
+                        {/*        <Icon iconId={'instagram'} width={'21'} height={'21'}/>*/}
+                        {/*    </SocialLink>*/}
+                        {/*</ListItem>*/}
                         <ListItem>
-                            <SocialLink href={"https://instagram.com"}>
-                                <Icon iconId={'instagram'} width={'21'} height={'21'}/>
-                            </SocialLink>
-                        </ListItem>
-                        <ListItem>
-                            <SocialLink href={"https://telegram.org"}>
+                            <SocialLink href={"https://t.me/LD_8989"} target="_blank">
                                 <Icon iconId={'telegram'} width={'21'} height={'21'}/>
                             </SocialLink>
                         </ListItem>
                         <ListItem>
-                            <SocialLink href={"https://vk.com"}>
+                            <SocialLink href={"https://vk.com/id539664147"} target="_blank">
                                 <Icon iconId={'vk'} width={'21'} height={'21'}/>
                             </SocialLink>
                         </ListItem>
-                        <ListItem>
-                            <SocialLink href={"https://linkedin.com"}>
-                                <Icon iconId={'linkedin'} width={'21'} height={'21'}/>
-                            </SocialLink>
-                        </ListItem>
+                        {/*<ListItem>*/}
+                        {/*    <SocialLink href={"https://linkedin.com"}>*/}
+                        {/*        <Icon iconId={'linkedin'} width={'21'} height={'21'}/>*/}
+                        {/*    </SocialLink>*/}
+                        {/*</ListItem>*/}
                     </SocialsList>
                 </FlexWrapper>
                 <StyledParagraph

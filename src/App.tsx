@@ -4,13 +4,23 @@ import Main from "./layout/main/Main.tsx";
 import { Footer } from "./layout/footer/Footer.tsx";
 import { Particle } from "./components/particle/Particle.tsx";
 
-const menuItems = ["Hero", "Skills", "Works", "Testimony", "Contact"];
+
+export type MenuItem = {name: string, link: string}
+export type MenuItems = MenuItem[]
+
+const menuItems: MenuItems = [
+    {link: "Hero", name: "Обо мне"},
+    {link: "Skills", name: "Навыки"},
+    {link: "Works", name: "Моя Работа"},
+    {link: "Testimony", name: "Популярное"},
+    {link: "Contact", name: "Контакты"},
+];
 
 function App() {
   return (
     <StyledApp className="App">
       <Particle />
-      <h1 className={"visually-hidden"}>мой сайт</h1>
+      <h1 className={"visually-hidden"}>исторический сайт</h1>
       <Header menuItems={menuItems} />
       <Main menuItems={menuItems} />
       <Footer />

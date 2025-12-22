@@ -4,11 +4,11 @@ import FlexWrapper from "../../../components/flexWrapper/FlexWrapper";
 import SectionTitle from "../../../components/headers/SectionHeader";
 import { Skill } from "../skills/Skill";
 import { StyledSection } from "../../../components/section/Section";
-import type { HeaderPropsType } from "../../../components/types/types";
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
+import type {Item} from "../../main/Main.tsx";
 
-export const Skills = (props: HeaderPropsType) => {
+export const Skills = ({itemMenu: skills}: Item) => {
   const skillStuff = [
     {
       skillIconId: "code",
@@ -49,11 +49,11 @@ export const Skills = (props: HeaderPropsType) => {
   ];
   return (
     <SkillsStyledSection
-      id={props.headerName}
+      id={skills.link}
       backGrColor={theme.backgroundColor.secondary}
     >
       <Container>
-        <SectionTitle text={`My ${props.headerName}`} mb={"80px"} />
+        <SectionTitle text={`My ${skills.name}`} mb={"80px"} />
         <FlexWrapper wrap={"wrap"} justify={"center"}>
           <Fade cascade={true} damping={0.25}>
             {skillStuff.map((item, index) => {
