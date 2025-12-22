@@ -25,6 +25,7 @@ export const Contact = ({itemMenu: contact}: Item) => {
             )
             .then(() => {
                 alert("Сообщение отправлено");
+                formRef.current?.reset();
             })
             .catch(() => {
                 alert("Ошибка при отправке");
@@ -69,28 +70,28 @@ type StyledFormProps = {
 };
 
 const StyledForm = styled.form<StyledFormProps>`
-    max-width: 540px;
-    width: 100%;
+  max-width: 540px;
+  width: 100%;
 
-    ${(props) =>
-            props.$flexbox &&
-            css<StyledFormProps>`
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            `}
+  ${(props) =>
+    props.$flexbox &&
+    css<StyledFormProps>`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    `}
+  textarea {
+    margin-bottom: 35px;
+    height: 179px;
+    resize: none;
+    padding-top: 6px;
+  }
 
-    textarea {
-        margin-bottom: 35px;
-        height: 179px;
-        resize: none;
-    }
-
-    input:not(:nth-last-child(1)) {
-        margin-bottom: 16px;
-        max-height: 32px;
-        height: 100%;
-    }
+  input:not(:nth-last-child(1)) {
+    margin-bottom: 16px;
+    max-height: 32px;
+    height: 100%;
+  }
 `;
 
 const StyledField = styled.input`
