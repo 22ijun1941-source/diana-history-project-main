@@ -4,10 +4,10 @@ import theme from "../../../styles/Theme.Styled";
 
 type tabMenuPropsType = {
   tabsItems: Array<{
-    status: "all" | "landing" | "react" | "spa";
+    status: "all" | "old" | "aftermath" | "petr";
     title: string;
   }>;
-  changeFilterStatus: (value: "all" | "landing" | "react" | "spa") => void;
+  changeFilterStatus: (value: "all" | "old" | "aftermath" | "petr") => void;
 };
 
 export const TabMenu = (props: tabMenuPropsType) => {

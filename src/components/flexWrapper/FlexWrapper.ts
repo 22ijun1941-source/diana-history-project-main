@@ -20,6 +20,7 @@ const FlexWrapper = styled.div<FlexWrapperPropsType>`
   gap: ${props => props.gap || "unset"};
   margin-bottom: ${props => props.mb || "unset"};
   
+  
 `
 
 export default FlexWrapper;
