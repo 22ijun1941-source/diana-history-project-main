@@ -21,7 +21,7 @@ const HeaderMenu = (props: { menuItems: MenuItems }) => {
 };
 
 const MenuChanger = (props: { menuItems: MenuItems }) => {
-    const breakPoint = 768;
+    const breakPoint = 833;
     const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {

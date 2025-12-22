@@ -53,7 +53,7 @@ export const Skills = ({itemMenu: skills}: Item) => {
       backGrColor={theme.backgroundColor.secondary}
     >
       <Container>
-        <SectionTitle text={`My ${skills.name}`} mb={"80px"} />
+        <SectionTitle text={`${skills.name}`} mb={"80px"} />
         <FlexWrapper wrap={"wrap"} justify={"center"}>
           <Fade cascade={true} damping={0.25}>
             {skillStuff.map((item, index) => {

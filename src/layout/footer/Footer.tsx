@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
         <StyledFooter id={'footer'}>
             <Container>
                 <SectionHeader text={
-                    "Diana"
+                    "Диана"
                 } mb={'26px'} fontSize={'22px'}/>
                 <FlexWrapper justify={'center'}>
                     <SocialsList>
@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
                     fontWeight={'400'}
                     color={'rgba(255, 255, 255, 0.50)'}
                 >
-                    © {new Date().getFullYear()} Diana, All Rights Reserved.
+                    © {new Date().getFullYear()} Диана, Все права защищены.
                 </StyledParagraph>
             </Container>
         </StyledFooter>

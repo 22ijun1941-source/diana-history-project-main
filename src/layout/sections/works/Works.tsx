@@ -105,7 +105,7 @@ export const Works = ({itemMenu: works}: Item) => {
   return (
     <StyledSection id={works.link}>
       <Container>
-        <SectionTitle text={`My ${works.name}`} mb={"69px"} />
+        <SectionTitle text={`${works.name}`} mb={"69px"} />
 
         <FlexWrapper
           wrap={"wrap"}

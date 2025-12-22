@@ -10,10 +10,10 @@ export type MenuItems = MenuItem[]
 
 const menuItems: MenuItems = [
     {link: "Hero", name: "Обо мне"},
-    {link: "Skills", name: "Навыки"},
     {link: "Works", name: "Моя Работа"},
-    {link: "Testimony", name: "Популярное"},
-    {link: "Contact", name: "Контакты"},
+    {link: "Testimony", name: "Цитаты"},
+    {link: "Skills", name: "Мои Навыки"},
+    {link: "Contact", name: "Связь со мной"},
 ];
 
 function App() {

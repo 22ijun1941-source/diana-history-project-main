@@ -20,9 +20,9 @@ const Main = (props: { menuItems: MenuItems }) => {
     return (
         <main>
             <Hero itemMenu={items.hero}/>
-            <Skills itemMenu={items.skills}/>
             <Works itemMenu={items.works}/>
             <Testimony itemMenu={items.testimony}/>
+            <Skills itemMenu={items.skills}/>
             <Contact itemMenu={items.contact}/>
             {/*<HireMe/>*/}
         </main>
