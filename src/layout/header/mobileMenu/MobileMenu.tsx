@@ -14,7 +14,7 @@ export const MobileMenu = (props: { menuItems: MenuItems }) => {
     return (
         <>
             <StyledNavigation>
-                <MobileMenuPopup isOpen={menuIsOpen} onClick={() => {
+                <MobileMenuPopup $isOpen={menuIsOpen} onClick={() => {
                     setMenuIsOpen(false)
                 }}>
                     <StyledListNavigation>
@@ -46,7 +46,7 @@ export const MobileMenu = (props: { menuItems: MenuItems }) => {
                 </MobileMenuPopup>
             </StyledNavigation>
 
-            <BurgerButton isOpen={menuIsOpen} onClick={onBurgerBtnClick}>
+            <BurgerButton $isOpen={menuIsOpen} onClick={onBurgerBtnClick}>
                     <span>
                     </span>
             </BurgerButton>
@@ -67,7 +67,7 @@ const StyledNavigation = styled.nav
       }
     `
 
-const MobileMenuPopup = styled.div<{ isOpen: boolean }>
+const MobileMenuPopup = styled.div<{ $isOpen: boolean }>
     `
       position: fixed;
       top: 0;
@@ -80,7 +80,7 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>
       display: none;
 
       // propisivaem chto budet pri otkritii popupa
-      ${props => props.isOpen && css<{ isOpen: boolean }>`
+      ${props => props.$isOpen && css<{ $isOpen: boolean }>`
         display: flex;
         justify-content: center;
         align-items: center;
@@ -90,12 +90,10 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>
 
 const StyledListNavigation = styled.ul
     `
-
       display: flex;
       gap: 20px;
       align-items: center;
       flex-direction: column;
-
     `
 
 const Mask = styled.span
@@ -167,7 +165,7 @@ const NavLink = styled.a
       }
     `
 
-const BurgerButton = styled.button<{ isOpen: boolean }>
+const BurgerButton = styled.button<{ $isOpen: boolean }>
     `
       display: none;
       width: 50px;
@@ -191,7 +189,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>
 
         transition: .5s ease-in-out;
 
-        ${props => props.isOpen && css<{ isOpen: boolean }>`
+        ${props => props.$isOpen && css<{ $isOpen: boolean }>`
           background-color: rgba(255, 255, 255, 0);
           //pochemu ne opacity => togda k before i after tozhe primenitsja opacity 
         `}
@@ -205,7 +203,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>
           transform: translateY(-10px);
           transition: 1s ease-in-out;
 
-          ${props => props.isOpen && css<{ isOpen: boolean }>`
+          ${props => props.$isOpen && css<{ $isOpen: boolean }>`
             transform: rotate(-45deg) translateY(0px);
           `}
         }
@@ -220,7 +218,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>
           transform: translateY(10px);
           transition: 1s ease-in-out;
 
-          ${props => props.isOpen && css<{ isOpen: boolean }>`
+          ${props => props.$isOpen && css<{ $isOpen: boolean }>`
             transform: rotate(45deg) translateY(0px);
             width: 36px;
           `}

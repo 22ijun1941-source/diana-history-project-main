@@ -15,13 +15,19 @@ import Icon from "../Icon/Icon";
 const authors = import.meta.glob('../../assets/images/quotes/*.{png,jpg,jpeg,webp}', {eager: true});
 console.log(' authors: ', authors);
 const authorsArray = Object.values(authors).map((img: any) => img.default || img);
-const sortedAuthors = authorsArray.sort((a, b) => {
-    const numA = parseInt(a.match(/(\d+).png$/)[1]);
-    const numB = parseInt(b.match(/(\d+).png$/)[1]);
+const sortedAuthors = authorsArray
+    .filter(path =>
+        /-authors-(\d+).png$/i.test(path)
+    )
+    .sort((a, b) => {
+            const getNum = (path: string) => {
+                const match = path.match(/-authors-(\d+).png$/i);
+                return match ? parseInt(match[1]) : 999;
+            }
 
-    return numA - numB;
-    }
-)
+            return getNum(a) - getNum(b);
+        }
+    )
 
 console.log(' sortedAuthors: ', sortedAuthors);
 let count = 0;
@@ -29,32 +35,32 @@ const items = [
     <Slide
         text={"«История — сокровищница наших деяний, свидетельница прошлого, пример и поучение для настоящего, предостережение для будущего»"}
         author={'Мигель де Сервантес Сааведра'}
-        image={authorsArray[count]}
+        image={sortedAuthors[count]}
     />,
     <Slide text={"«Достоинство архивов в том, что они приводят нас в соприкосновение с чистой историчностью»"}
            author={"Клод Леви-Строс"}
-           image={authorsArray[++count]}
+           image={sortedAuthors[++count]}
     />,
     <Slide text={"«Тот, кто не помнит своего прошлого, осуждён на то, чтобы пережить его вновь»"}
            author={"Джордж Сантаяна"}
-           image={authorsArray[++count]}
+           image={sortedAuthors[++count]}
     />,
     <Slide text={"«Не я принадлежу прошлому, а прошлое принадлежит мне»"}
            author={"Мери Антин"}
-           image={authorsArray[++count]}
+           image={sortedAuthors[++count]}
     />,
     <Slide text={"«Народ, желающий быть великим народом, должен знать свою историю»"}
            author={"К.Н. Бестужев-Рюмин"}
-           image={authorsArray[++count]}
+           image={sortedAuthors[++count]}
     />,
     <Slide
         text={"«Изучая предков, узнаем самих себя. Без знания истории мы должны признать себя случайностями, не знающими, как и зачем пришли в мир, как и для чего живём, как и к чему должны стремиться»"}
         author={"В.О. Ключевский"}
-        image={authorsArray[++count]}
+        image={sortedAuthors[++count]}
     />,
     <Slide text={"«Современность — это не только настоящее, но и великое прошлое, нами воспринятое»"}
            author={"Д.С. Лихачёв"}
-           image={authorsArray[++count]}
+           image={sortedAuthors[++count]}
     />,
 ];
 
@@ -120,7 +126,7 @@ export const Slider: React.FC = () => (
 
 
 const StyledSlider = styled(FlexWrapper)`
-  max-width: 500px;
+  max -width: 500px;
   padding: 0 35px;
   width: 100%;
 `
