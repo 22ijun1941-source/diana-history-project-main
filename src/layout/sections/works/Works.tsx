@@ -180,7 +180,8 @@ const StyledWorkFlexWrapper = styled(FlexWrapper)<isCenteredProps>`
     props.$isCentered &&
     css<isCenteredProps>`
       justify-content: center;
-    `} @media ${theme.media.desktop1169px} {
+    `} 
+  @media ${theme.media.desktop1169px} {
   justify-content: center;
 }
 `;
