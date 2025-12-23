@@ -6,21 +6,55 @@ import {Slide} from './Slide';
 import './../../styles/slider.scss'
 import Icon from "../Icon/Icon";
 
-const lorem20 = `Lorem ipsum dolor sit amet, 
-            consectetur adipisicing elit.
-             Ab dolor exercitationem,
-              itaque ratione sequi sunt ullam 
-              voluptatibus. Illum, iusto, perferendis?`
+// const lorem20 = `Lorem ipsum dolor sit amet,
+//             consectetur adipisicing elit.
+//              Ab dolor exercitationem,
+//               itaque ratione sequi sunt ullam
+//               voluptatibus. Illum, iusto, perferendis?`
 
+const authors = import.meta.glob('../../assets/images/quotes/*.{png,jpg,jpeg,webp}', {eager: true});
+console.log(' authors: ', authors);
+const authorsArray = Object.values(authors).map((img: any) => img.default || img);
+const sortedAuthors = authorsArray.sort((a, b) => {
+    const numA = parseInt(a.match(/(\d+).png$/)[1]);
+    const numB = parseInt(b.match(/(\d+).png$/)[1]);
+
+    return numA - numB;
+    }
+)
+
+console.log(' sortedAuthors: ', sortedAuthors);
+let count = 0;
 const items = [
-    <Slide text={lorem20 + ` 1`}
-           author={'ivan ivanov'}
+    <Slide
+        text={"«История — сокровищница наших деяний, свидетельница прошлого, пример и поучение для настоящего, предостережение для будущего»"}
+        author={'Мигель де Сервантес Сааведра'}
+        image={authorsArray[count]}
     />,
-    <Slide text={lorem20 + ` 2`}
-           author={'petr petrov'}
+    <Slide text={"«Достоинство архивов в том, что они приводят нас в соприкосновение с чистой историчностью»"}
+           author={"Клод Леви-Строс"}
+           image={authorsArray[++count]}
     />,
-    <Slide text={lorem20 + ` 3`}
-           author={'sidor sidorov'}
+    <Slide text={"«Тот, кто не помнит своего прошлого, осуждён на то, чтобы пережить его вновь»"}
+           author={"Джордж Сантаяна"}
+           image={authorsArray[++count]}
+    />,
+    <Slide text={"«Не я принадлежу прошлому, а прошлое принадлежит мне»"}
+           author={"Мери Антин"}
+           image={authorsArray[++count]}
+    />,
+    <Slide text={"«Народ, желающий быть великим народом, должен знать свою историю»"}
+           author={"К.Н. Бестужев-Рюмин"}
+           image={authorsArray[++count]}
+    />,
+    <Slide
+        text={"«Изучая предков, узнаем самих себя. Без знания истории мы должны признать себя случайностями, не знающими, как и зачем пришли в мир, как и для чего живём, как и к чему должны стремиться»"}
+        author={"В.О. Ключевский"}
+        image={authorsArray[++count]}
+    />,
+    <Slide text={"«Современность — это не только настоящее, но и великое прошлое, нами воспринятое»"}
+           author={"Д.С. Лихачёв"}
+           image={authorsArray[++count]}
     />,
 ];
 
@@ -69,7 +103,6 @@ const renderNextButton = ({isDisabled}: { isDisabled?: boolean | undefined }) =>
 };
 
 
-
 export const Slider: React.FC = () => (
     <StyledSlider direction={'column'} align={'center'}>
 
@@ -78,6 +111,8 @@ export const Slider: React.FC = () => (
             mouseTracking
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
+            // autoPlay={true}
+            // autoPlayInterval={8000}
         />
 
     </StyledSlider>

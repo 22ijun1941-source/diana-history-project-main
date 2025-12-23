@@ -1,6 +1,5 @@
 import {StyledSection} from "../../../components/section/Section";
 import SectionHeader from "../../../components/headers/SectionHeader";
-import {RombusWithIcon} from "../skills/Skill";
 import FlexWrapper from "../../../components/flexWrapper/FlexWrapper";
 import theme from "../../../styles/Theme.Styled";
 import {Container} from "../../../components/container/Container";
@@ -18,7 +17,7 @@ export const Testimony = ({itemMenu: testimony}: Item) => {
             <Container>
                 <SectionHeader text={testimony.name} mb={"60px"}/>
                 <FlexWrapper justify={"center"} direction={"column"} align={"center"}>
-                    <RombusWithIcon skillIconId={"code"}/>
+                    {/*<RombusWithIcon skillIconId={"code"}/>*/}
                     <Slider/>
                 </FlexWrapper>
             </Container>
