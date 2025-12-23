@@ -15,13 +15,16 @@ import Icon from "../Icon/Icon";
 const authors = import.meta.glob('../../assets/images/quotes/*.{png,jpg,jpeg,webp}', {eager: true});
 console.log(' authors: ', authors);
 const authorsArray = Object.values(authors).map((img: any) => img.default || img);
-const sortedAuthors = authorsArray
-    .filter(path =>
-        /-authors-(\d+).png$/i.test(path)
-    )
+console.log(' authorsArray: ', authorsArray);
+const filteredAuthors = authorsArray.filter(path => {
+        return /authors-\d+(?:-[a-z0-9_-]+)?\.png$/i.test(path);
+    }
+)
+console.log(' filteredAuthors: ', filteredAuthors);
+const sortedAuthors = filteredAuthors
     .sort((a, b) => {
             const getNum = (path: string) => {
-                const match = path.match(/-authors-(\d+).png$/i);
+                const match = path.match(/authors-(\d+)/i);
                 return match ? parseInt(match[1]) : 999;
             }
 
